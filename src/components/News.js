@@ -10,6 +10,7 @@ const News = (props) => {
     const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1)
     const [totalResults, setTotalResults] = useState(0)
+
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
@@ -52,9 +53,9 @@ const News = (props) => {
 
                 <div className="container">
                     <div className="row" >
-                        {articles.map((el) => {
-                            return <div className="col-md-4" key={el.url}>
-                                <NewsItem title={el.title ? el.title.slice(0, 45) : ""} description={el.description ? el.description.slice(0, 88) : ""} imageUrl={el.urlToImage ? el.urlToImage : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5AYmGYqIl_jt8nFL6F3cyyMFlJUVgF5e_E0hmbXlNLQ&s"} newsUrl={el.url} author={el.author} date={el.publishedAt} source={el.source.name} />
+                        {articles.map((e) => {
+                            return <div className="col-md-4 d-flex align-items-stretch" key={e.url}>
+                                <NewsItem title={e.title ? e.title.slice(0, 45) : ""} description={e.description ? e.description.slice(0, 88) : ""} imageUrl={e.urlToImage ? e.urlToImage : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5AYmGYqIl_jt8nFL6F3cyyMFlJUVgF5e_E0hmbXlNLQ&s"} newsUrl={e.url} author={e.author} date={e.publishedAt} source={e.source.name} />
                             </div>
                         })}
                     </div>
